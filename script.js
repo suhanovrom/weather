@@ -81,7 +81,6 @@ class Weather{
 
             // }
         });
-
     }
     getDays(){
         this.i = 1;
