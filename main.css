@@ -1,0 +1,122 @@
+*{
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+body{
+    display: flex;
+    justify-content: center;
+    background-color: gray;
+}
+.background{
+    background-color:rgb(48, 47, 47);
+    width: 700px;
+    height: 400px;
+    margin-top: 100px;
+    display: flex;
+}
+.Cityday{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.result{
+    height: 100px;
+    align-items: center;
+    margin-top: 250px;
+    width: 400px;
+    opacity: 0.8;
+    background-color: black;
+    justify-content: space-between;
+    display: flex;
+}
+.weathericon{
+    width: 25px;
+}
+.temperature{
+    align-items: center;
+    font-size: 60px;
+    margin-left: 20px;
+}
+.search::placeholder {
+    position: absolute;
+    left: 10px;
+}
+.search{
+    width: 260px;
+    height: 40px;
+    background-color: black;
+    opacity: 0.8;
+}
+.temperature:hover{
+    cursor: pointer;
+}
+button{
+    background-color: rgba(0, 0, 0, 0);
+    width: 40px;
+    height: 40px;
+}
+.searchimg{
+    width: 30px;
+    height: 30px;
+}
+.data{
+    background-color: black;
+    opacity: 0.8;
+    border-left: 2px solid black;
+    
+}
+.allsearch{
+    position: relative;
+    display: flex;
+}
+.weatherdetails{
+    flex-direction: column;
+    display: flex;
+    margin-left: 10px;
+}
+h3{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.weatherdetails > p{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+span{
+    margin-right: 10px;
+}
+.days{
+    box-sizing: border-box;
+    padding: 10px;
+    height: 90px;
+    width: 100px;
+}
+.day{
+    text-align: center;
+    font-size: 18px;
+}
+.temperaturefordays{
+    font-size: 25px;
+}
+.infofordays{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.weathercon{
+    font-size: 18px;
+}
+.weathericonfordays{
+    width: 25px;
+    height: 25px;
+}
+.otherdays{
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
