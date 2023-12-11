@@ -127,7 +127,7 @@ class Weather{
         this.textcity.textContent = value.name;
     }
     getTextDate(){
-        this.textDate.textContent = this.date.getDate() + "." + (this.date.getMonth()+1) + " " + this.getWeekday();
+        this.textDate.textContent = this.date.getDate() + "." + (this.date.getMonth()+1) + " " + this.getWeekday(0);
     }
     getTemperature(value){
         this.textTemperature.textContent = (value.main.temp - 273.15).toFixed() + "°C";
