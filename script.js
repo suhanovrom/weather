@@ -1,5 +1,6 @@
 class Weather{
     constructor(){
+        
         this.days = document.querySelectorAll(".days");
         this.cloudy = document.querySelector(".cloudy");
         this.humidity = document.querySelector(".humidity");
@@ -13,7 +14,13 @@ class Weather{
         this.city = "Kharkiv"
         this.date = new Date();
         this.textTemperature = document.querySelector("h1");
+        this.textTemperature.addEventListener("click",() => {this.EventTemp(this.valueT)});
         this.textcity = document.querySelector(".city");
+        document.addEventListener("keydown", (value) =>{
+            if(value.code == "Enter"){
+                this.getSearchWeather();
+            }
+        });
         this.getWeather();
         
         
@@ -33,6 +40,7 @@ class Weather{
             return response.json();
             })
             .then(value =>{
+                this.valueT = value.main.temp;
                 this.lat = value.coord.lat;
                 this.lon = value.coord.lon;
                 this.getTemperature(value);
@@ -131,13 +139,18 @@ class Weather{
     }
     getTemperature(value){
         this.textTemperature.textContent = (value.main.temp - 273.15).toFixed() + "°C";
-        this.textTemperature.addEventListener("click", () =>{
-            if(this.textTemperature.textContent.includes("°C")){
-                this.textTemperature.textContent = ((value.main.temp - 273.15) * (9 / 5) + 32).toFixed()+ "°F";
-            }else{
-                this.textTemperature.textContent = (value.main.temp - 273.15).toFixed() + "°C";
-            }
-        });
+
+         
+    }
+    EventTemp(value){
+        if(this.textTemperature.textContent.includes("°C")){
+            this.textTemperature.textContent = ((value - 273.15) * (9 / 5) + 32).toFixed()+ "°F";
+        }else{
+            this.textTemperature.textContent = (value - 273.15).toFixed() + "°C";
+        }
+    };
+    getTempertureEventListener(va){
+
     }
     getWeekday(value){
         switch(this.date.getDay() + value){
