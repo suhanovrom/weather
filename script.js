@@ -11,7 +11,12 @@ class Weather{
         this.textweather = document.querySelector(".weather")
         document.querySelector("button").addEventListener("click",() => {this.getSearchWeather()}) ;
         this.textDate = document.querySelector(".Date");
-        this.city = "Kharkiv"
+        if(localStorage.getItem("city")){
+            console.log("value");
+            this.city = localStorage.getItem("city");
+        }else{
+            this.city = "Kharkiv"
+        }
         this.date = new Date();
         this.textTemperature = document.querySelector("h1");
         this.textTemperature.addEventListener("click",() => {this.EventTemp(this.valueT)});
@@ -22,12 +27,14 @@ class Weather{
             }
         });
         this.getWeather();
+
         
         
     }
     getSearchWeather(){
         this.search = document.querySelector("input");
         this.city = this.search.value;
+        this.saveCity(this.city);
         this.search.value ="";
         this.getWeather();
     }
@@ -51,6 +58,10 @@ class Weather{
                 this.getDays();
                 this.getTemperaturefordays(value);
             });
+    }
+    saveCity(value){
+        localStorage.removeItem("city");
+        localStorage.setItem("city",value);
     }
     getTemperaturefordays(value){
         fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + `${this.lat}` + "&lon=" + `${this.lon}` + "&appid=c9b5fa19a461cb876d3e9b002c6844d5")
